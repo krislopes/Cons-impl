@@ -7,7 +7,7 @@
 <meta name="description" content="Faça o que você já vende ser mais claro, mais desejado e mais simples de escolher. Consultoria KRIS e Implementação KRIS: duas formas de trabalhar com o Kris no seu negócio.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700;800&family=Newsreader:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#0A0B0E;
@@ -17,7 +17,6 @@
     --muted:#9A9DA8;
     --mark:#FF2828;
     --mark-glow:#FF5252;
-    --gold:#D98A3D;
     --max:40rem;
   }
   *{box-sizing:border-box}
@@ -34,9 +33,9 @@
   .wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem;position:relative;z-index:2}
   section{padding:4.5rem 0;position:relative}
 
-  .glow{position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none;z-index:0}
+  .glow{position:absolute;border-radius:50%;filter:blur(60px);pointer-events:none;z-index:0;will-change:transform;transform:translateZ(0)}
   .glow-red{background:radial-gradient(circle,rgba(255,40,40,.55),transparent 70%);width:26rem;height:26rem}
-  .glow-gold{background:radial-gradient(circle,rgba(217,138,61,.35),transparent 70%);width:22rem;height:22rem}
+  .glow-red2{background:radial-gradient(circle,rgba(255,40,40,.3),transparent 70%);width:22rem;height:22rem}
 
   h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;letter-spacing:-.01em;color:#fff;margin:0 0 1rem}
   h1{font-size:clamp(.92rem,5.1vw,2.3rem);line-height:1.12;text-transform:uppercase;letter-spacing:-.01em;white-space:nowrap}
@@ -67,18 +66,24 @@
   .ribbon span:nth-child(even){color:var(--mark-glow)}
   @keyframes scroll-left{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-  .quote-list{display:grid;grid-template-columns:1fr;gap:1rem;margin:2.2rem 0}
+  .quote-list{display:grid;grid-template-columns:1fr;gap:1.3rem;margin:2.2rem 0}
   .quote-item{
-    background:var(--panel);border:1px solid var(--panel-line);border-left:3px solid var(--mark);
-    border-radius:8px;padding:1.4rem 1.5rem;
-    box-shadow:0 10px 30px -18px rgba(255,40,40,.6);
+    position:relative;overflow:hidden;
+    background:linear-gradient(160deg,#1B1D24,var(--panel) 60%);
+    border:1px solid var(--panel-line);border-left:3px solid var(--mark);
+    border-radius:12px;padding:1.8rem 1.8rem;
+    box-shadow:0 16px 36px -20px rgba(255,40,40,.5),inset 0 1px 0 rgba(255,255,255,.04);
+  }
+  .quote-item::after{
+    content:"";position:absolute;top:-40%;right:-30%;width:12rem;height:12rem;border-radius:50%;
+    background:radial-gradient(circle,rgba(255,40,40,.16),transparent 70%);pointer-events:none;
   }
   .quote-item .assume{
-    font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.05rem;line-height:1.32;
-    color:#fff;margin:0 0 .5rem;
+    font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.08rem;line-height:1.42;
+    letter-spacing:-.01em;color:#fff;margin:0 0 .85rem;position:relative;
   }
   .quote-item .real{
-    color:var(--muted);font-size:.88rem;line-height:1.35;margin:0;
+    color:var(--muted);font-size:.9rem;line-height:1.62;margin:0;position:relative;
   }
 
   .icon-list{margin:1.8rem 0}
@@ -145,7 +150,7 @@
 
 <section>
   <div class="glow glow-red" style="top:-6rem;right:-8rem"></div>
-  <div class="glow glow-gold" style="top:18rem;left:-10rem"></div>
+  <div class="glow glow-red2" style="top:18rem;left:-10rem"></div>
   <div class="wrap">
     <h1>Torne-se difícil de <em>comparar</em>.</h1>
     <h2 style="text-transform:none;color:var(--muted);font-size:clamp(1.1rem,3.6vw,1.35rem)">Faça o que você já vende ser mais claro, mais desejado e mais simples de escolher.</h2>
@@ -174,7 +179,10 @@
       <div class="quote-item"><p class="assume">Você não quer só faturar mais.</p><p class="real">Quer crescer com margem, caixa e espaço para continuar crescendo.</p></div>
     </div>
 
-    <p class="lede" style="margin-top:1rem">Clareza, distinção, desejo, escolha e rentabilidade. É essa lógica que orienta o trabalho.</p>
+    <div class="tags" style="margin-top:1.4rem">
+      <span class="tag">Clareza</span><span class="tag">Distinção</span><span class="tag">Desejo</span><span class="tag">Escolha</span><span class="tag">Rentabilidade</span>
+    </div>
+    <p class="muted" style="margin-top:.9rem">É essa lógica que orienta o trabalho.</p>
     <p class="muted">A partir daí, existem duas formas de trabalharmos juntos.</p>
   </div>
 </section>
@@ -188,7 +196,7 @@
 
 <!-- CONSULTORIA -->
 <section>
-  <div class="glow glow-gold" style="top:2rem;right:-9rem;opacity:.5"></div>
+  <div class="glow glow-red2" style="top:2rem;right:-9rem;opacity:.5"></div>
   <div class="wrap">
     <span class="tier-label">Nível 1</span>
     <h2>Consultoria KRIS</h2>
@@ -335,7 +343,7 @@
 
 <!-- NAO E PACOTE -->
 <section>
-  <div class="glow glow-gold" style="bottom:-3rem;right:-8rem;opacity:.45"></div>
+  <div class="glow glow-red2" style="bottom:-3rem;right:-8rem;opacity:.45"></div>
   <div class="wrap">
     <h2>Não é um pacote de marketing</h2>
     <div class="not-list">
@@ -357,7 +365,6 @@
 
 <!-- FECHAMENTO -->
 <section class="center">
-  <div class="glow glow-red" style="bottom:-4rem;left:50%;transform:translateX(-50%);opacity:.6"></div>
   <div class="wrap">
     <h2>Seu negócio já vende.</h2>
     <p class="muted">A próxima pergunta é:</p>
